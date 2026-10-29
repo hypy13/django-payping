@@ -1,0 +1,10 @@
+SECRET_KEY = "payping-tests-only"
+INSTALLED_APPS = ["django.contrib.contenttypes", "django_payping"]
+DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}}
+ROOT_URLCONF = "tests.urls"
+PAYPING_TOKEN = "test-token"
+PAYPING_SUCCESS_URL = "/success/"
+PAYPING_FAILURE_URL = "/failure/"
+ALLOWED_HOSTS = ["testserver"]
+USE_TZ = True
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
