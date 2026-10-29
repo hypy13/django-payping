@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PayPing manual test</title>
+  <style>
+    body { margin: 0; padding: 32px 20px; background: #f3f5f8; color: #1c293b; font: 17px/1.6 system-ui, sans-serif; }
+    main { max-width: 620px; margin: 6vh auto; padding: 32px; background: white; border: 1px solid #dce2ea; border-radius: 16px; }
+    h1 { line-height: 1.2; }
+    .notice { padding: 12px; background: #fff3ce; border-radius: 8px; }
+    button, .button { display: inline-block; padding: 12px 20px; margin: 8px 8px 8px 0; background: #215acb; color: white; border: 0; border-radius: 8px; font: inherit; cursor: pointer; text-decoration: none; }
+    .secondary { background: #526075; }
+    dt { font-weight: 600; margin-top: 12px; }
+    dd { margin: 0; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="notice">Real PayPing gateway · A live merchant token can charge real money</p>
+  {% if step == "checkout" %}
+    <h1>Test a payment</h1>
+    <p>Enter an amount in toman. Continue to PayPing, complete or cancel the payment, and return here to inspect verification and the saved status.</p>
+    {% if configured %}
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Continue to PayPing</button>
+      </form>
+    {% else %}
+      <p>Set the PAYPING_TOKEN environment variable and restart the server to enable checkout.</p>
+    {% endif %}
+  {% else %}
+    <h1>Payment result: {{ outcome }}</h1>
+    {% if outcome == "processing" %}<p>Verification is still processing. Do not pay again. Use payment recovery to check this attempt.</p>{% endif %}
+    {% if payment %}
+      <dl>
+        <dt>Saved status</dt><dd>{{ payment.status }}</dd>
+        <dt>Amount</dt><dd>{{ payment.amount_toman }} toman</dd>
+        <dt>Client reference</dt><dd>{{ payment.client_ref_id }}</dd>
+        <dt>Payment code</dt><dd>{{ payment.payment_code }}</dd>
+        <dt>Payment reference</dt><dd>{{ payment.payment_ref_id|default:"—" }}</dd>
+      </dl>
+      <h2>Payment events</h2>
+      <ul>{% for event in payment.events.all %}<li>{{ event.kind }}</li>{% empty %}<li>No events</li>{% endfor %}</ul>
+    {% else %}<p>The callback was invalid.</p>{% endif %}
+    <a class="button" href="{% url 'demo-checkout' %}">Try another payment</a>
+  {% endif %}
+</main>
+</body>
+</html>
