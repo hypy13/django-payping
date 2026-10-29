@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-payping"
+version = "0.1.0"
+description = "A reusable Django payment integration for PayPing"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["django", "payping", "payments", "iran"]
+dependencies = [
+    "Django>=5.2,<7.0",
+    "requests>=2.31,<3.0",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Operating System :: OS Independent",
+    "Framework :: Django",
+    "Framework :: Django :: 5.2",
+    "Framework :: Django :: 6.0",
+    "Framework :: Django :: 6.1",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+
+[project.urls]
+Homepage = "https://github.com/hypy13/django-payping"
+Repository = "https://github.com/hypy13/django-payping"
+Issues = "https://github.com/hypy13/django-payping/issues"
+Changelog = "https://github.com/hypy13/django-payping/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = [
+    "build>=1.2",
+    "twine>=6",
+    "mypy>=1.15,<3",
+    "django-stubs>=5.2,<7",
+    "types-requests>=2.31",
+    "ruff>=0.11,<1",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["django_payping*"]
+
+[tool.setuptools.package-data]
+django_payping = ["py.typed", "locale/*/LC_MESSAGES/*.po", "locale/*/LC_MESSAGES/*.mo"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["src/django_payping"]
+plugins = ["mypy_django_plugin.main"]
+check_untyped_defs = true
+warn_unused_ignores = true
+no_implicit_optional = true
+exclude = ["migrations/"]
+
+[tool.django-stubs]
+django_settings_module = "tests.settings"
+
+[tool.ruff]
+target-version = "py310"
+extend-exclude = ["resources", "src/django_payping/migrations"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

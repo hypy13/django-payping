@@ -1,0 +1,5 @@
+include LICENSE README.md CHANGELOG.md CONTRIBUTING.md RELEASING.md
+prune .github
+prune resources
+prune tests
+global-exclude __pycache__ *.py[cod] .DS_Store

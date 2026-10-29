@@ -1,0 +1,29 @@
+# Private reference material: keep locally for future development.
+/resources/
+
+# Python environments, caches, and build outputs.
+__pycache__/
+*.py[cod]
+*.egg-info/
+/.venv*/
+/venv/
+/build/
+/dist/
+/.tox/
+/.nox/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Local settings, credentials, databases, and editors.
+.env
+.env.*
+!.env.example
+*.sqlite3
+*.sqlite3-journal
+.idea/
+.vscode/
+.DS_Store
+*~
