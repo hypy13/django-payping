@@ -7,6 +7,9 @@ and persistent payment events.
 
 ## Install
 
+For a step-by-step integration with an existing Django project, see the
+[installation guide](INSTALLATION.md).
+
 ```sh
 pip install "django-payping @ git+https://github.com/hypy13/django-payping.git"
 ```
