@@ -1,0 +1,178 @@
+# Persian translations for django-payping.
+# Distributed under the MIT license.
+msgid ""
+msgstr ""
+"Project-Id-Version: django-payping 0.1.0\n"
+"PO-Revision-Date: 2026-10-24 23:00+0330\n"
+"Last-Translator: django-payping contributors\n"
+"Language-Team: Persian\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "PayPing payments"
+msgstr "پرداخت‌های پی‌پینگ"
+
+msgid "Created at"
+msgstr "زمان ایجاد"
+
+msgid "Updated at"
+msgstr "زمان به‌روزرسانی"
+
+msgid "New"
+msgstr "جدید"
+
+msgid "Creating payment"
+msgstr "در حال ساخت پرداخت"
+
+msgid "Creation uncertain"
+msgstr "نتیجه ساخت نامشخص"
+
+msgid "Awaiting payment"
+msgstr "در انتظار پرداخت"
+
+msgid "Verifying payment"
+msgstr "در حال تایید"
+
+msgid "Succeeded"
+msgstr "موفق"
+
+msgid "Failed"
+msgstr "ناموفق"
+
+msgid "Canceled"
+msgstr "لغو شده"
+
+msgid "ID"
+msgstr "شناسه"
+
+msgid "Client reference ID"
+msgstr "شناسه مرجع درخواست"
+
+msgid "Local attempt identifier sent to PayPing as ClientRefId."
+msgstr "شناسه محلی تلاش پرداخت که با نام ClientRefId به پی‌پینگ ارسال می‌شود."
+
+msgid "Order reference"
+msgstr "مرجع سفارش"
+
+msgid "Amount (toman)"
+msgstr "مبلغ (تومان)"
+
+msgid "Positive integer amount in toman, excluding provider fees."
+msgstr "مبلغ صحیح و مثبت به تومان، بدون کارمزد درگاه."
+
+msgid "Description"
+msgstr "توضیحات"
+
+msgid "Payer name"
+msgstr "نام پرداخت‌کننده"
+
+msgid "Payer identity"
+msgstr "هویت پرداخت‌کننده"
+
+msgid "Payment code"
+msgstr "کد پرداخت"
+
+msgid "Payment reference ID"
+msgstr "شناسه مرجع تراکنش"
+
+msgid "Provider transaction reference returned after payment."
+msgstr "شناسه مرجع تراکنش که درگاه پس از پرداخت برمی‌گرداند."
+
+msgid "Status"
+msgstr "وضعیت"
+
+msgid "Error message"
+msgstr "پیام خطا"
+
+msgid "Trace ID"
+msgstr "شناسه پیگیری"
+
+msgid "Metadata"
+msgstr "فراداده"
+
+msgid "Idempotency key"
+msgstr "کلید یکتای تلاش پرداخت"
+
+msgid "Merchant account"
+msgstr "حساب پذیرنده"
+
+msgid "Non-secret routing key used by the configured client factory."
+msgstr "کلید غیرمحرمانه برای انتخاب حساب در سازنده کلاینت پیکربندی‌شده."
+
+msgid "Gateway base URL"
+msgstr "نشانی پایه درگاه"
+
+msgid "Is reversible"
+msgstr "قابل برگشت است"
+
+msgid "Is blocked"
+msgstr "مسدود است"
+
+msgid "Creation response"
+msgstr "پاسخ ساخت پرداخت"
+
+msgid "Verification response"
+msgstr "پاسخ تایید پرداخت"
+
+msgid "Masked card number"
+msgstr "شماره کارت پوشانده‌شده"
+
+msgid "Card PAN hash"
+msgstr "هش شماره کارت"
+
+msgid "Initiated at"
+msgstr "زمان آغاز پرداخت"
+
+msgid "Paid at"
+msgstr "زمان پرداخت"
+
+msgid "Last reconciled at"
+msgstr "زمان آخرین تطبیق"
+
+msgid "PayPing payment"
+msgstr "پرداخت پی‌پینگ"
+
+msgid "Created"
+msgstr "ایجاد شده"
+
+msgid "Initiated"
+msgstr "آغاز شده"
+
+msgid "Creation failed"
+msgstr "ساخت پرداخت ناموفق"
+
+msgid "Duplicate callback"
+msgstr "بازگشت تکراری"
+
+msgid "Payment"
+msgstr "پرداخت"
+
+msgid "Kind"
+msgstr "نوع"
+
+msgid "Payload"
+msgstr "داده رویداد"
+
+msgid "Deduplication key"
+msgstr "کلید جلوگیری از تکرار"
+
+msgid "Delivered at"
+msgstr "زمان تحویل"
+
+msgid "Locked at"
+msgstr "زمان قفل شدن"
+
+msgid "Delivery attempts"
+msgstr "تعداد تلاش تحویل"
+
+msgid "Last delivery error"
+msgstr "آخرین خطای تحویل"
+
+msgid "PayPing event"
+msgstr "رویداد پی‌پینگ"
+
+msgid "PayPing events"
+msgstr "رویدادهای پی‌پینگ"
