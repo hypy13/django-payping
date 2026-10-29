@@ -1,0 +1,58 @@
+name: Publish to PyPI
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Match release tag to package versions
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          python - <<'PY'
+          import ast
+          import os
+          import pathlib
+          import tomllib
+
+          project = tomllib.loads(pathlib.Path('pyproject.toml').read_text())['project']
+          module = ast.parse(pathlib.Path('src/django_payping/__init__.py').read_text())
+          versions = [ast.literal_eval(node.value) for node in module.body
+                      if isinstance(node, ast.Assign)
+                      and any(isinstance(target, ast.Name) and target.id == '__version__'
+                              for target in node.targets)]
+          if versions != [project['version']]:
+              raise SystemExit('Package version declarations disagree')
+          if os.environ['RELEASE_TAG'] != 'v' + project['version']:
+              raise SystemExit('Release tag must equal v + package version')
+          PY
+
+  checks:
+    needs: validate-version
+    uses: ./.github/workflows/ci.yml
+
+  publish:
+    needs: checks
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/django-payping
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: distributions
+          path: dist/
+      - name: Publish distributions
+        uses: pypa/gh-action-pypi-publish@release/v1
